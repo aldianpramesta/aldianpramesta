@@ -569,7 +569,7 @@
   let currentPage = 1;      
   let currentCategory = "Semua"; // Kategori default saat web dibuka
   // Jika layar HP (<= 768px) tampilkan 3 produk, jika desktop tampilkan 6 produk per halaman
-const itemsPerPage = window.innerWidth <= 768 ? 3 : 6;  
+const itemsPerPage = window.innerWidth <= 768 ? 12 : 12;  
 
   // Fungsi membuat tombol filter kategori secara otomatis dari data produk
   function buatTombolKategori() {
@@ -682,7 +682,7 @@ const itemsPerPage = window.innerWidth <= 768 ? 3 : 6;
     timerPencarian = setTimeout(() => {
       currentPage = 1; 
       tampilkanProduk(currentPage);
-    }, 300); 
+    }, 2000); 
   });
 
   clearSearchBtn.addEventListener('click', () => {
