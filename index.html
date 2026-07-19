@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEMTER</title>
 
   <script>
@@ -396,8 +396,56 @@
   background-color: #222222;
   border-color: #555555;
 }
+
+/* ================= TAMPILAN KHUSUS HP (RESPONSIF) ================= */
+@media (max-width: 768px) {
+    /* Membuat grid produk menjadi 3 kolom sejajar di HP */
+    .pricing-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    /* Menyesuaikan ukuran kartu produk agar muat berdampingan */
+    .pricing-card {
+        height: auto; /* Tinggi otomatis menyesuaikan isi, tidak kaku 562px */
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    /* Mengecilkan kontainer gambar produk */
+    .product-image-container {
+        height: 80px; 
+        margin-bottom: 8px;
+    }
+
+    /* Mengecilkan ukuran teks nama produk dan harga */
+    .product-name {
+        font-size: 11px;
+        line-height: 1.2em;
+        margin-bottom: 6px;
+    }
+
+    .harga-durasi {
+        margin-bottom: 0px;
+    }
+
+    .harga-durasi .harga {
+        font-size: 11px;
+    }
+
+    /* Penyesuaian teks Section 3 (.village) agar tidak jebol di HP */
+    .section-3 .village {
+        font-size: 40px;
+        line-height: 45px;
+        letter-spacing: -1px;
+    }
+}
     
   </style>
+
+  
 </head>
 <body>
   <!-- Section 1: Nama & Branding -->
@@ -520,7 +568,8 @@
   // 2. PENGATURAN AWAL
   let currentPage = 1;      
   let currentCategory = "Semua"; // Kategori default saat web dibuka
-  const itemsPerPage = 6;   
+  // Jika layar HP (<= 768px) tampilkan 3 produk, jika desktop tampilkan 6 produk per halaman
+const itemsPerPage = window.innerWidth <= 768 ? 3 : 6;  
 
   // Fungsi membuat tombol filter kategori secara otomatis dari data produk
   function buatTombolKategori() {
