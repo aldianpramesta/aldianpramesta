@@ -30,11 +30,11 @@
       align-items: center; /* Posisi tengah secara horizontal */
     }
 
-/* ========== Animasi Global, lagi diilangin dulu ga ada yang pas ========== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    /* ========== Animasi Global ========== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     
     /* Section 1 - Judul Nama */
     .section-1 {
@@ -47,7 +47,7 @@
       font-size: 16px;
       letter-spacing: -0.04em; /* Spasi antar huruf lebih rapat */
       line-height: 1em;
-      padding-left: 20px; /* ← ini tambahan baru */
+      padding-left: 20px;
     }
     .section-1 .temter {
       font-family: 'Instrument Serif', serif; /* Font khusus untuk TEMTER */
@@ -55,397 +55,152 @@
       font-weight: 400;
     }
 
-    /* Section 2 - Judul Tengah */
-    .section-2 {
-      height: auto;
-      padding: 40px 16px; /* Spasi agar tidak nempel ke section lain */
-      text-align: center;
+    /* Section 5 - Pricing Cards */
+    .section-5 {
+      height: auto; /* Diubah jadi otomatis mengikuti isi barang */
+      padding: 60px 16px; /* Ditambah sedikit jarak atasnya biar gak nempel branding */
+      display: flex;
+      justify-content: flex-start; /* Dimulai normal dari atas ke bawah */
+      align-items: center;
     }
-    .section-2 h2 {
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 1.2em;
-      margin: 0; /* Hilangkan margin bawaan */
-    }
-
-    /* Section 3 - Info Utama */
-    .section-3 {
-      height: auto; /* Fleksibel berdasarkan isi */
-      padding: 40px 20px; /* Spasi atas bawah dan samping */
-      text-align: center;
-    }
-    .section-3 .info {
-      font-weight: 600;
-      font-size: 18px;
-      color: #B3B3B3; /* Abu-abu terang */
-      margin-bottom: 0px; /* Jarak ke elemen bawahnya */
-    }
-    .section-3 .village {
-      font-weight: bold;
-      font-size: 115px; /* Ukuran besar banget */
-      letter-spacing: -5px; /* Hurufnya saling rapat */
-      line-height: 110px;
-      color: #ffffff;
-      text-shadow: 0px 1px 2px rgba(0,0,0,0.5); /* Efek bayangan biar nendang */
-      margin-bottom: -16px;
-    }
-
-    .section-3 .quote {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 1.8em;
-      letter-spacing: 0em;
-      color: #ffffff;
-      white-space: pre-line; /* Supaya enter di teks quote tetap muncul */
-      margin: 0;
-    }
-
-    /* Section 4 - Modul Percintaan */
-.section-4 {
-  height: auto; /* auto agar menyesuaikan isi */
-  padding: 0px 16px; /* padding atas bawah besar, samping sedang */
-  text-align: center;
-}
-
-.section-4 .judul-modul {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 35px;
-  letter-spacing: -0.04em;
-  line-height: 1.8em;
-  margin-bottom: 0px;
-}
-
-.section-4 .video-wrapper {
-  margin-bottom: 0px;
-}
-
-.section-4 .deskripsi-modul {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: -0.04em;
-  line-height: 1.8em;
-  margin: 0;
-}
     
-    .gate-button {
-      position: relative;
-      width: 200px;
-      height: 60px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      color: white;
-      overflow: hidden;
-      font-family: 'Instrument Sans', sans-serif;
-    }
-
-    .gate-button .gate {
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      top: 0;
-      background: #38804B;
-      transition: transform 0.5s ease;
-      z-index: 1;
-    }
-
-    .gate-button .left {
-      left: 0;
-      border-right: 1px solid #333;
-    }
-
-    .gate-button .right {
-      right: 0;
-      border-left: 1px solid #333;
-    }
-
-    .gate-button .text {
-  position: relative;
-  z-index: 2;
-  color: #fff; /* ← ini bikin teks jadi merah */
-  transition: color 0.3s ease;
-      font-weight: bold;
-    }
-
-    .gate-button:hover .left {
-      transform: translateX(-100%);
-    }
-
-    .gate-button:hover .right {
-      transform: translateX(100%);
-    }
-
-    .gate-button:hover .text {
-      color: #966406;
-    }
-
-/* Section 5 - Pricing Cards */
-.section-5 {
-  height: auto; /* Diubah jadi otomatis mengikuti isi barang */
-  padding: 60px 16px; /* Ditambah sedikit jarak atasnya biar gak nempel branding */
-  display: flex;
-  justify-content: flex-start; /* Dimulai normal dari atas ke bawah */
-  align-items: center;
-}
-
-.info-modul-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 35px;
-  letter-spacing: -0.04em;
-  line-height: 1.8em;
-  margin-bottom: 0px;
-  text-align: center;
-}
-
-    .info-modul-deskripsi {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: -0.04em;
-  line-height: 1.8em;
-  margin: 0 0 40px 0;
-  text-align: center;
-}
-    
-.pricing-wrapper {
-    display: flex;
-    gap: 12px 24px;
-    width: 100%;
-    max-width: 1200px;
-    justify-content: space-between; 
-    flex-wrap: wrap;
-}
-
-.product-name {
-  font-weight: 600;
-  font-size: 24px; /* <- Nanti kalau mau ubah ukuran semua teks produk, tinggal ganti angka ini aja! */
-  margin-bottom: 16px;
-  color: #ffffff;
-}
-    
-.product-image-container {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.product-image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-    
-.pricing-card {
-  background-color: #111111;
-  border-radius: 12px;
-  padding: 24px;
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.harga-durasi {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  margin-bottom: 45px;
-}
-
-.harga-durasi .harga {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 10px;
-  color: #ffffff;
-}
-
-.harga-durasi .durasi {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.8px;
-  line-height: 15px;
-  color: #808080;
-}
-
-.pricing-card .judul-modul {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-  color: #ffffff;
-  margin-bottom: 45px;
-  text-align: left;
-}
-
-.pricing-card .deskripsi {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 23.4px;
-  color: #808080;
-  margin-bottom: 80px;
-  text-align: left;
-}
-
-.pricing-card .keuntungan {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #ffffff;
-  margin-bottom: 12px;
-  text-align: left;
-  padding-left: 14px; /* ← ini bikin agak geser kanan */
-}
-
-.pricing-card .fitur {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  padding-left: 14px; /* ← ini bikin agak geser kanan */
-}
-
-.pricing-card .fitur li {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.pricing-card .check {
-  font-size: 13px;
-  color: #ffffff;
-}
-
-.pricing-card .text {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0.8px;
-  line-height: 15px;
-  color: #808080;
-}
-
-    .pricing-card .harga-coret {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 15px;
-  color: #808080;
-  text-decoration: line-through;
-}
-
-.pricing-card .deskripsi-harga {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.04em;
-  line-height: 1.8em;
-  color: #ffffff;
-  margin-top: -40px;
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-/* Styling untuk Tombol Halaman (Pagination) */
-.pagination-wrapper-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 40px;
-  width: 100%;
-}
-
-.page-btn {
-  background-color: #111111;
-  color: #ffffff;
-  border: 1px solid #333333;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.page-btn.active {
-  background-color: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-.page-btn:hover:not(.active) {
-  background-color: #222222;
-  border-color: #555555;
-}
-
-/* ================= TAMPILAN KHUSUS HP (RESPONSIF) ================= */
-@media (max-width: 768px) {
-    /* Membuat grid produk menjadi 3 kolom sejajar di HP */
     .pricing-wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 8px;
-        padding: 0 4px;
+        display: flex;
+        gap: 12px 24px;
+        width: 100%;
+        max-width: 1200px;
+        justify-content: space-between; 
+        flex-wrap: wrap;
     }
 
-    /* Menyesuaikan ukuran kartu produk agar muat berdampingan */
-    .pricing-card {
-        height: auto; /* Tinggi otomatis menyesuaikan isi, tidak kaku 562px */
-        padding: 8px 8px 20px 8px;
-        border-radius: 8px;
-    }
-
-    /* Mengecilkan kontainer gambar produk */
-    .product-image-container {
-        height: 80px; 
-        margin-bottom: 8px;
-    }
-
-    /* Mengecilkan ukuran teks nama produk dan harga */
     .product-name {
-        font-size: 16px;
-        line-height: 1.2em;
-        margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 24px; /* <- Ubah ukuran semua teks produk di sini */
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    
+    .product-image-container {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .product-image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .pricing-card {
+      background-color: #111111;
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .harga-durasi {
-        margin-bottom: 0px;
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 45px;
     }
 
     .harga-durasi .harga {
-        font-size: 15px;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 10px;
+      color: #ffffff;
     }
 
-    /* Penyesuaian teks Section 3 (.village) agar tidak jebol di HP */
-    .section-3 .village {
-        font-size: 40px;
-        line-height: 45px;
-        letter-spacing: -1px;
+    .harga-durasi .durasi {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      line-height: 15px;
+      color: #808080;
     }
-}
-    
+
+    /* Styling untuk Tombol Halaman (Pagination) */
+    .pagination-wrapper-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .page-btn {
+      background-color: #111111;
+      color: #ffffff;
+      border: 1px solid #333333;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .page-btn.active {
+      background-color: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .page-btn:hover:not(.active) {
+      background-color: #222222;
+      border-color: #555555;
+    }
+
+    /* ================= TAMPILAN KHUSUS HP (RESPONSIF) ================= */
+    @media (max-width: 768px) {
+        .pricing-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 8px;
+            padding: 0 4px;
+        }
+
+        .pricing-card {
+            height: auto;
+            padding: 8px 8px 20px 8px;
+            border-radius: 8px;
+        }
+
+        .product-image-container {
+            height: 80px; 
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            line-height: 1.2em;
+            margin-bottom: 6px;
+        }
+
+        .harga-durasi {
+            margin-bottom: 0px;
+        }
+
+        .harga-durasi .harga {
+            font-size: 15px;
+        }
+    }
   </style>
-
-  
 </head>
 <body>
   <!-- Section 1: Nama & Branding -->
@@ -455,246 +210,233 @@
     </div>
   </section>
 
-<!-- Section 5: Pricing -->
-<style>
-  /* Styling khusus untuk Search Bar & Tombol Hapus */
-  .search-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px; /* Dikurangi sedikit agar pas dengan kategori */
-    width: 100%;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .search-bar {
-    width: 100%;
-    padding: 12px 40px 12px 16px;
-    background-color: #111111;
-    color: #ffffff;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .search-bar:focus {
-    border-color: #ffffff;
-  }
-  .clear-search-btn {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #555555;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-    display: none;
-    transition: color 0.2s;
-  }
-  .clear-search-btn:hover {
-    color: #ffffff;
-  }
-
-  /* Styling khusus untuk Tombol Pilihan Kategori */
-  .category-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
- .category-btn {
-  background: none;
-  color: #666666;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 8px 12px;
-  border-radius: 0;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.2s ease;
-}
-.category-btn.active {
-  color: #ffffff;
-  border-bottom: 2px solid #ffffff;
-}
-.category-btn:hover:not(.active) {
-  color: #bbbbbb;
-}
-</style>
-
-<section class="section-5">
-  <!-- Input Search Bar -->
-  <div class="search-wrapper">
-    <input type="text" id="search-input" placeholder="Cari produk di sini..." class="search-bar">
-    <button id="clear-search" class="clear-search-btn">&times;</button>
-  </div>
-
-  <!-- Wadah Tombol Kategori Otomatis -->
-  <div id="category-container" class="category-wrapper"></div>
-
-  <!-- Wadah Produk -->
-  <div class="pricing-wrapper" id="tempat-produk"></div>
-  
-  <!-- Wadah Tombol Halaman (1 2 3) -->
-  <div id="pagination-container" class="pagination-wrapper-buttons"></div>
-</section>
-
-<script>
-  // 1. DATA PRODUK + KATEGORI (Tinggal atur properti category-nya di sini!)
-  const daftarProduk = [
-    { name: "Rinso Deterjen Cair 1.44kg", price: "Rp149.000", img: "images/Rinso Deterjen Bubuk 1.44g.png", category: "Deterjen" },
-    { name: "Soklin Cair 800ml", price: "Rp25.000", img: "images/soklin.png", category: "Deterjen" },
-    { name: "Pepsodent 190g", price: "Rp15.000", img: "images/pepsodent.png", category: "Perawatan" },
-    // Contoh produk tambahan untuk tes halaman/pencarian/kategori
-    { name: "Sunlight Jeruk Nipis", price: "Rp15.000", img: "images/placeholder.png", category: "Sabun Cuci" },
-    { name: "Mama Lemon 780ml", price: "Rp14.000", img: "images/placeholder.png", category: "Sabun Cuci" },
-    { name: "Pepsodent Herbal", price: "Rp18.000", img: "images/placeholder.png", category: "Perawatan" },
-    { name: "Rinso Bubuk 700g", price: "Rp22.000", img: "images/placeholder.png", category: "Deterjen" }
-  ];
-
-  // 2. PENGATURAN AWAL
-  let currentPage = 1;      
-  let currentCategory = "Semua"; // Kategori default saat web dibuka
-  // Jika layar HP (<= 768px) tampilkan 3 produk, jika desktop tampilkan 6 produk per halaman
-const itemsPerPage = window.innerWidth <= 768 ? 12 : 12;  
-
-  // Fungsi membuat tombol filter kategori secara otomatis dari data produk
-  function buatTombolKategori() {
-    const catContainer = document.getElementById('category-container');
-    
-    // Mengambil daftar kategori unik dari data produk, lalu sisipkan "Semua" di awal
-    const listKategori = ["Semua", ...new Set(daftarProduk.map(p => p.category).filter(Boolean))];
-    
-    catContainer.innerHTML = ""; 
-
-    listKategori.forEach(kat => {
-      const button = document.createElement('button');
-      button.innerText = kat;
-      button.classList.add('category-btn');
-      
-      if (kat === currentCategory) button.classList.add('active');
-
-      // Aksi ketika tombol kategori diklik
-      button.addEventListener('click', () => {
-        currentCategory = kat;
-        currentPage = 1; // Reset halaman balik ke 1 setiap ganti kategori
-        
-        // Atur ulang tombol mana yang aktif berwarna putih
-        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        tampilkanProduk(currentPage);
-      });
-
-      catContainer.appendChild(button);
-    });
-  }
-
-  // Fungsi untuk menampilkan produk berdasarkan halaman, kata kunci pencarian, & kategori
-  function tampilkanProduk(page) {
-    const container = document.getElementById('tempat-produk');
-    container.innerHTML = ""; 
-
-    const kataKunci = document.getElementById('search-input').value.toLowerCase();
-
-    // FILTER DOUBLE MATRIX: Menyaring berdasarkan pencarian SEKALIGUS Kategori aktif
-    const produkDifilter = daftarProduk.filter(produk => {
-      const cocokKataKunci = produk.name.toLowerCase().includes(kataKunci);
-      const cocokKategori = (currentCategory === "Semua") || (produk.category === currentCategory);
-      return cocokKataKunci && cocokKategori;
-    });
-
-    // Rumus potong list untuk pagination halaman
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = page * itemsPerPage;
-    const produkHalamanIni = produkDifilter.slice(startIndex, endIndex);
-
-    produkHalamanIni.forEach(produk => {
-      container.innerHTML += `
-        <div class="pricing-card">
-          <div class="product-image-container">
-            <img src="${produk.img}" alt="${produk.name}">
-          </div>
-          <div class="product-name">${produk.name}</div>
-          <div class="harga-durasi">
-            <span class="harga">${produk.price}</span>
-          </div>
-        </div>
-      `;
-    });
-
-    buatTombolNavigasi(produkDifilter.length);
-  }
-
-  // Fungsi membuat navigasi halaman angka otomatis
-  function buatTombolNavigasi(totalItems) {
-    const paginationContainer = document.getElementById('pagination-container');
-    paginationContainer.innerHTML = ""; 
-
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    
-    if (totalPages <= 1) return;
-
-    for (let i = 1; i <= totalPages; i++) {
-      const button = document.createElement('button');
-      button.innerText = i;
-      button.classList.add('page-btn');
-      
-      if (i === currentPage) button.classList.add('active');
-
-      button.addEventListener('click', () => {
-        currentPage = i;
-        tampilkanProduk(currentPage);
-        document.getElementById('tempat-produk').scrollIntoView({ behavior: 'smooth' });
-      });
-
-      paginationContainer.appendChild(button);
+  <!-- Section 5: Pricing / Katalog Produk -->
+  <style>
+    /* Styling khusus untuk Search Bar & Tombol Hapus */
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
     }
-  }
+    .search-bar {
+      width: 100%;
+      padding: 12px 40px 12px 16px;
+      background-color: #111111;
+      color: #ffffff;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-bar:focus {
+      border-color: #ffffff;
+    }
+    .clear-search-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #555555;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      display: none;
+      transition: color 0.2s;
+    }
+    .clear-search-btn:hover {
+      color: #ffffff;
+    }
 
-  // Kontrol Search Input
-  const searchInput = document.getElementById('search-input');
-  const clearSearchBtn = document.getElementById('clear-search');
-  let timerPencarian;
+    /* Styling khusus untuk Tombol Pilihan Kategori */
+    .category-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .category-btn {
+      background: none;
+      color: #666666;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 8px 12px;
+      border-radius: 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+    .category-btn.active {
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+    }
+    .category-btn:hover:not(.active) {
+      color: #bbbbbb;
+    }
+  </style>
 
-  searchInput.addEventListener('input', () => {
-    if (searchInput.value.length > 0) {
-      clearSearchBtn.style.display = 'block';
-    } else {
+  <section class="section-5">
+    <!-- Input Search Bar -->
+    <div class="search-wrapper">
+      <input type="text" id="search-input" placeholder="Cari produk di sini..." class="search-bar">
+      <button id="clear-search" class="clear-search-btn">&times;</button>
+    </div>
+
+    <!-- Wadah Tombol Kategori Otomatis -->
+    <div id="category-container" class="category-wrapper"></div>
+
+    <!-- Wadah Produk -->
+    <div class="pricing-wrapper" id="tempat-produk"></div>
+    
+    <!-- Wadah Tombol Halaman (1 2 3) -->
+    <div id="pagination-container" class="pagination-wrapper-buttons"></div>
+  </section>
+
+  <script>
+    // 1. DATA PRODUK + KATEGORI
+    const daftarProduk = [
+      { name: "Rinso Deterjen Cair 1.44kg", price: "Rp149.000", img: "images/Rinso Deterjen Bubuk 1.44g.png", category: "Deterjen" },
+      { name: "Soklin Cair 800ml", price: "Rp25.000", img: "images/soklin.png", category: "Deterjen" },
+      { name: "Pepsodent 190g", price: "Rp15.000", img: "images/pepsodent.png", category: "Perawatan" },
+      { name: "Sunlight Jeruk Nipis", price: "Rp15.000", img: "images/placeholder.png", category: "Sabun Cuci" },
+      { name: "Mama Lemon 780ml", price: "Rp14.000", img: "images/placeholder.png", category: "Sabun Cuci" },
+      { name: "Pepsodent Herbal", price: "Rp18.000", img: "images/placeholder.png", category: "Perawatan" },
+      { name: "Rinso Bubuk 700g", price: "Rp22.000", img: "images/placeholder.png", category: "Deterjen" }
+    ];
+
+    // 2. PENGATURAN AWAL
+    let currentPage = 1;      
+    let currentCategory = "Semua"; 
+    const itemsPerPage = window.innerWidth <= 768 ? 12 : 12;  
+
+    // Fungsi membuat tombol filter kategori secara otomatis dari data produk
+    function buatTombolKategori() {
+      const catContainer = document.getElementById('category-container');
+      const listKategori = ["Semua", ...new Set(daftarProduk.map(p => p.category).filter(Boolean))];
+      catContainer.innerHTML = ""; 
+
+      listKategori.forEach(kat => {
+        const button = document.createElement('button');
+        button.innerText = kat;
+        button.classList.add('category-btn');
+        
+        if (kat === currentCategory) button.classList.add('active');
+
+        button.addEventListener('click', () => {
+          currentCategory = kat;
+          currentPage = 1; 
+          document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          tampilkanProduk(currentPage);
+        });
+
+        catContainer.appendChild(button);
+      });
+    }
+
+    // Fungsi untuk menampilkan produk berdasarkan halaman, kata kunci pencarian, & kategori
+    function tampilkanProduk(page) {
+      const container = document.getElementById('tempat-produk');
+      container.innerHTML = ""; 
+
+      const kataKunci = document.getElementById('search-input').value.toLowerCase();
+
+      const produkDifilter = daftarProduk.filter(produk => {
+        const cocokKataKunci = produk.name.toLowerCase().includes(kataKunci);
+        const cocokKategori = (currentCategory === "Semua") || (produk.category === currentCategory);
+        return cocokKataKunci && cocokKategori;
+      });
+
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = page * itemsPerPage;
+      const produkHalamanIni = produkDifilter.slice(startIndex, endIndex);
+
+      produkHalamanIni.forEach(produk => {
+        container.innerHTML += `
+          <div class="pricing-card">
+            <div class="product-image-container">
+              <img src="${produk.img}" alt="${produk.name}">
+            </div>
+            <div class="product-name">${produk.name}</div>
+            <div class="harga-durasi">
+              <span class="harga">${produk.price}</span>
+            </div>
+          </div>
+        `;
+      });
+
+      buatTombolNavigasi(produkDifilter.length);
+    }
+
+    // Fungsi membuat navigasi halaman angka otomatis
+    function buatTombolNavigasi(totalItems) {
+      const paginationContainer = document.getElementById('pagination-container');
+      paginationContainer.innerHTML = "";
+
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      if (totalPages <= 1) return;
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.innerText = i;
+        button.classList.add('page-btn');
+        
+        if (i === currentPage) button.classList.add('active');
+
+        button.addEventListener('click', () => {
+          currentPage = i;
+          tampilkanProduk(currentPage);
+          document.getElementById('tempat-produk').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        paginationContainer.appendChild(button);
+      }
+    }
+
+    // Kontrol Search Input
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    let timerPencarian;
+
+    searchInput.addEventListener('input', () => {
+      if (searchInput.value.length > 0) {
+        clearSearchBtn.style.display = 'block';
+      } else {
+        clearSearchBtn.style.display = 'none';
+      }
+
+      clearTimeout(timerPencarian);
+      timerPencarian = setTimeout(() => {
+        currentPage = 1;
+        tampilkanProduk(currentPage);
+      }, 2000);
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = "";
       clearSearchBtn.style.display = 'none';
-    }
-
-    clearTimeout(timerPencarian);
-
-    timerPencarian = setTimeout(() => {
-      currentPage = 1; 
+      currentPage = 1;
       tampilkanProduk(currentPage);
-    }, 2000); 
-  });
+      searchInput.focus();
+    });
 
-  clearSearchBtn.addEventListener('click', () => {
-    searchInput.value = "";             
-    clearSearchBtn.style.display = 'none'; 
-    currentPage = 1;                    
-    tampilkanProduk(currentPage);       
-    searchInput.focus();                
-  });
-
-  // JALANKAN SISTEM PERTAMA KALI
-  buatTombolKategori(); // Menggambar pilihan kategori di atas produk
-  tampilkanProduk(currentPage);
-</script>
+    // JALANKAN SISTEM PERTAMA KALI
+    buatTombolKategori(); 
+    tampilkanProduk(currentPage);
+  </script>
 </body>
 </html>
