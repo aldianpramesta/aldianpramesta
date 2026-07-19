@@ -376,46 +376,33 @@
 
 <!-- Section 5: Pricing -->
 <section class="section-5">
-  <div class="pricing-wrapper">
-    <!-- Pricing Card 1 -->
-    <div class="pricing-card">
-      <div class="product-image-container">
-        <img src="images/Rinso Deterjen Bubuk 1.44g.png" alt="Rinso Deterjen Bubuk 1.44g">
-      </div>
-      <div class="product-name">Rinso Deterjen Cair 1.44kg</div>
-      <div class="harga-durasi">
-        <span class="harga">Rp149.000</span>
-        <span class="harga-coret"></span>
-        <span class="durasi"></span>
-      </div>
-    </div>
-
-    <!-- Pricing Card 2 -->
-    <div class="pricing-card">
-      <div class="product-image-container">
-        <img src="images/placeholder.png" alt="Nama Produk 2">
-      </div>
-      <div class="product-name">Nama Produk 2</div>
-      <div class="harga-durasi">
-        <span class="harga">Rp149.000</span>
-        <span class="harga-coret"></span>
-        <span class="durasi"></span>
-      </div>
-    </div>
-
-    <!-- Pricing Card 3 -->
-    <div class="pricing-card">
-      <div class="product-image-container">
-        <img src="images/placeholder.png" alt="Nama Produk 3">
-      </div>
-      <div class="product-name">Nama Produk 3</div>
-      <div class="harga-durasi">
-        <span class="harga">Rp149.000</span>
-        <span class="harga-coret"></span>
-        <span class="durasi"></span>
-      </div>
-    </div>
-  </div>
+  <!-- Cukup sediakan wadah kosong dengan ID khusus -->
+  <div class="pricing-wrapper" id="tempat-produk"></div>
 </section>
+  <script>
+  // 1. Tulis daftar produk kamu di sini (Gampang banget nambahinnya tinggal nambah baris)
+  const daftarProduk = [
+    { name: "Rinso Deterjen Cair 1.44kg", price: "Rp149.000", img: "images/Rinso Deterjen Bubuk 1.44g.png" },
+    { name: "Soklin Cair 800ml", price: "Rp25.000", img: "images/soklin.png" },
+    { name: "Pepsodent 190g", price: "Rp15.000", img: "images/pepsodent.png" }
+  ];
+
+  // 2. JavaScript bakal otomatis looping/mengulang kode HTML sesuai jumlah barang di atas
+  const container = document.getElementById('tempat-produk');
+  
+  daftarProduk.forEach(produk => {
+    container.innerHTML += `
+      <div class="pricing-card">
+        <div class="product-image-container">
+          <img src="${produk.img}" alt="${produk.name}">
+        </div>
+        <div class="product-name">${produk.name}</div>
+        <div class="harga-durasi">
+          <span class="harga">${produk.price}</span>
+        </div>
+      </div>
+    `;
+  });
+</script>
 </body>
 </html>
