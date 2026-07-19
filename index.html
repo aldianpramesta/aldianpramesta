@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1000">
+  <meta name="viewport" content="width=1200">
   <title>TEMTER</title>
 
   <script>
@@ -36,39 +36,39 @@
   to { opacity: 1; transform: translateY(0); }
 }
     
-    /* Section 1 - Judul Nama */
-    .section-1 {
+    /*  1 - Judul Nama */
+    .-1 {
       height: auto; /* Otomatis mengikuti isi */
       padding: 32px 16px; /* Spasi atas bawah 32px, samping 16px */
       display: block; /* Supaya kontennya gak center (default block) */
     }
-    .section-1 .judul {
+    .-1 .judul {
       font-weight: bold;
       font-size: 16px;
       letter-spacing: -0.04em; /* Spasi antar huruf lebih rapat */
       line-height: 1em;
       padding-left: 20px; /* ← ini tambahan baru */
     }
-    .section-1 .temter {
+    .-1 .temter {
       font-family: 'Instrument Serif', serif; /* Font khusus untuk TEMTER */
       font-style: italic;
       font-weight: 400;
     }
 
-    /* Section 2 - Judul Tengah */
-    .section-2 {
+    /*  2 - Judul Tengah */
+    .-2 {
       height: auto;
-      padding: 40px 16px; /* Spasi agar tidak nempel ke section lain */
+      padding: 40px 16px; /* Spasi agar tidak nempel ke  lain */
       text-align: center;
     }
-    .section-2 h2 {
+    .-2 h2 {
       font-weight: bold;
       font-size: 24px;
       line-height: 1.2em;
       margin: 0; /* Hilangkan margin bawaan */
     }
 
-    /* Section 3 - Info Utama */
+    /*  3 - Info Utama */
     .section-3 {
       height: auto; /* Fleksibel berdasarkan isi */
       padding: 40px 20px; /* Spasi atas bawah dan samping */
@@ -186,8 +186,8 @@
 
 /* Section 5 - Pricing Cards */
 .section-5 {
-  height: 655px;
-  padding: 40px 16px;
+  height: auto;
+  padding: 60px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
