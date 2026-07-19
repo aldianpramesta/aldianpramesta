@@ -80,7 +80,6 @@
       color: #B3B3B3; /* Abu-abu terang */
       margin-bottom: 0px; /* Jarak ke elemen bawahnya */
     }
-/* Penyesuaian teks Section 3 (.village) agar tidak jebol di HP */
     .section-3 .village {
       font-weight: bold;
       font-size: 115px; /* Ukuran besar banget */
@@ -90,7 +89,6 @@
       text-shadow: 0px 1px 2px rgba(0,0,0,0.5); /* Efek bayangan biar nendang */
       margin-bottom: -16px;
     }
-
 
     .section-3 .quote {
       font-weight: 500;
@@ -406,7 +404,6 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr); 
         gap: 8px;
-        margin-bottom: 20px;
         padding: 0 4px;
     }
 
@@ -438,24 +435,12 @@
         font-size: 10px;
     }
 
-/* Penyesuaian teks Section 3 (.village) agar tidak jebol di HP */
-.section-3 .village {
-    font-size: 40px;
-    line-height: 45px;
-    letter-spacing: -1px;
-}
-
-/* Ukuran Search Bar di HP */
-.search-bar { 
-    font-size: 1px; 
-    padding: 10px 14px;
-}
-
-/* Ukuran Tombol Kategori (Select) di HP */
-.category-btn { 
-    font-size: 1px; 
-    padding: 6px 14px;
-}
+    /* Penyesuaian teks Section 3 (.village) agar tidak jebol di HP */
+    .section-3 .village {
+        font-size: 40px;
+        line-height: 45px;
+        letter-spacing: -1px;
+    }
 }
     
   </style>
@@ -528,26 +513,25 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .category-btn {
-    background-color: #111111;
-    color: #ffffff;
-    border: 1px solid #333333;
-    padding: 8px 16px;
-    border-radius: 20px; /* Model kapsul bulat estetik */
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.2s ease;
-  }
-  .category-btn.active {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-  }
-  .category-btn:hover:not(.active) {
-    background-color: #222222;
-    border-color: #555555;
-  }
+ .category-btn {
+  background: none;
+  color: #666666;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 12px;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+.category-btn.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+.category-btn:hover:not(.active) {
+  color: #bbbbbb;
+}
 </style>
 
 <section class="section-5">
@@ -714,5 +698,3 @@ const itemsPerPage = window.innerWidth <= 768 ? 12 : 12;
 </script>
 </body>
 </html>
-
-
