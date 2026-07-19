@@ -408,7 +408,37 @@
   </section>
 
 <!-- Section 5: Pricing -->
+<style>
+  /* Styling khusus untuk Search Bar */
+  .search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 360px;
+    padding: 12px 16px;
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-bar:focus {
+    border-color: #ffffff;
+  }
+</style>
+
 <section class="section-5">
+  <!-- Input Search Bar Baru -->
+  <div class="search-wrapper">
+    <input type="text" id="search-input" placeholder="Cari produk di sini..." class="search-bar">
+  </div>
+
   <!-- Wadah Produk -->
   <div class="pricing-wrapper" id="tempat-produk"></div>
   
@@ -422,26 +452,34 @@
     { name: "Rinso Deterjen Cair 1.44kg", price: "Rp149.000", img: "images/Rinso Deterjen Bubuk 1.44g.png" },
     { name: "Soklin Cair 800ml", price: "Rp25.000", img: "images/soklin.png" },
     { name: "Pepsodent 190g", price: "Rp15.000", img: "images/pepsodent.png" },
-    // Contoh produk tambahan untuk tes halaman 2 (bisa kamu ganti nanti)
+    // Contoh produk tambahan untuk tes halaman/pencarian
     { name: "Produk Contoh Ke-4", price: "Rp50.000", img: "images/placeholder.png" },
     { name: "Produk Contoh Ke-5", price: "Rp75.000", img: "images/placeholder.png" },
     { name: "Produk Contoh Ke-6", price: "Rp90.000", img: "images/placeholder.png" },
-    { name: "Produk Contoh Ke-7 (Muncul di Hal 3)", price: "Rp12.000", img: "images/placeholder.png" }
+    { name: "Produk Contoh Ke-7", price: "Rp12.000", img: "images/placeholder.png" }
   ];
 
-  // 2. PENGATURAN HALAMAN
-  let currentPage = 1;      // Halaman awal saat web dibuka
-  const itemsPerPage = 3;   // UBAH ANGKA INI untuk mengatur maksimal produk per halaman (misal: 6 atau 9)
+  // 2. PENGATURAN HALAMAN & PENCARIAN
+  let currentPage = 1;      
+  const itemsPerPage = 6;   // Mengatur maksimal produk yang muncul per halaman
 
-  // Fungsi untuk menampilkan produk berdasarkan halaman
+  // Fungsi untuk menampilkan produk berdasarkan halaman & filter pencarian
   function tampilkanProduk(page) {
     const container = document.getElementById('tempat-produk');
     container.innerHTML = ""; // Bersihkan produk halaman sebelumnya
 
-    // Rumus memotong list produk (misal produk indeks 0-2 untuk hal 1, 3-5 untuk hal 2)
+    // Ambil kata kunci ketikan dari search bar
+    const kataKunci = document.getElementById('search-input').value.toLowerCase();
+
+    // Saring list produk yang namanya cocok dengan ketikan user
+    const produkDifilter = daftarProduk.filter(produk => 
+      produk.name.toLowerCase().includes(kataKunci)
+    );
+
+    // Rumus memotong list produk berdasarkan halaman
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = page * itemsPerPage;
-    const produkHalamanIni = daftarProduk.slice(startIndex, endIndex);
+    const produkHalamanIni = produkDifilter.slice(startIndex, endIndex);
 
     // Render/gambar produk ke web
     produkHalamanIni.forEach(produk => {
@@ -458,37 +496,42 @@
       `;
     });
 
-    // Perbarui cetakan tombol halaman di bawahnya
-    buatTombolNavigasi();
+    // Perbarui cetakan tombol halaman berdasarkan jumlah produk hasil filter
+    buatTombolNavigasi(produkDifilter.length);
   }
 
   // Fungsi membuat tombol angka 1, 2, 3 secara otomatis
-  function buatTombolNavigasi() {
+  function buatTombolNavigasi(totalItems) {
     const paginationContainer = document.getElementById('pagination-container');
-    paginationContainer.innerHTML = ""; // Bersihkan tombol lama
+    paginationContainer.innerHTML = ""; 
 
-    const totalPages = Math.ceil(daftarProduk.length / itemsPerPage);
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    
+    // Kalau halaman cuma 1 atau kosong, sembunyikan tombol halaman
+    if (totalPages <= 1) return;
 
     for (let i = 1; i <= totalPages; i++) {
       const button = document.createElement('button');
       button.innerText = i;
       button.classList.add('page-btn');
       
-      // Kasih tanda warna putih kalau tombol tersebut sedang aktif dibuka
       if (i === currentPage) button.classList.add('active');
 
-      // Efek ketika tombol angka diklik
       button.addEventListener('click', () => {
         currentPage = i;
         tampilkanProduk(currentPage);
-        
-        // Layar otomatis naik dikit ke atas produk biar pas
         document.getElementById('tempat-produk').scrollIntoView({ behavior: 'smooth' });
       });
 
       paginationContainer.appendChild(button);
     }
   }
+
+  // Event listener: Setiap kali user mengetik sesuatu di search bar
+  document.getElementById('search-input').addEventListener('input', () => {
+    currentPage = 1; // Balikkan ke halaman 1 setiap kali mencari sesuatu
+    tampilkanProduk(currentPage);
+  });
 
   // Jalankan sistem pertama kali saat web dibuka
   tampilkanProduk(currentPage);
