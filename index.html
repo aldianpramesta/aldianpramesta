@@ -131,6 +131,24 @@
   margin: 0;
 }
 
+    .product-image-container {
+  width: 100%;
+  height: 200px;
+  background-color: #333;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+    
     .gate-button {
       position: relative;
       width: 200px;
@@ -354,15 +372,21 @@
 <!-- Section 5: Pricing -->
 <section class="section-5">
   <div class="pricing-wrapper">
-    <!-- Pricing Card 1 -->
-    <div class="pricing-card">
-      <div style="font-weight: 600; font-size: 18px; margin-bottom: 16px; color: #ffffff;">Rinso Deterjen Cair 1.44kg</div>
-      <div class="harga-durasi">
-        <span class="harga">Rp149.000</span>
-        <span class="harga-coret">Rp1 TRILIUN</span>
-        <span class="durasi">/ 1 TAHUN</span>
-      </div>
-    </div>
+<!-- Pricing Card 1 -->
+<div class="pricing-card">
+  <!-- Wadah Foto Produk Baru -->
+  <div class="product-image-container">
+    <!-- Ganti 'MASUKKAN_URL_FOTO_PRODUK_DISINI' dengan link gambar aslinya nanti -->
+    <img src="MASUKKAN_URL_FOTO_PRODUK_DISINI" alt="Foto Rinso Deterjen Cair 1.44kg">
+  </div>
+
+  <div style="font-weight: 600; font-size: 18px; margin-bottom: 16px; color: #ffffff;">Rinso Deterjen Cair 1.44kg</div>
+  <div class="harga-durasi">
+    <span class="harga">Rp149.000</span>
+    <span class="harga-coret">Rp1 TRILIUN</span>
+    <span class="durasi">/ 1 TAHUN</span>
+  </div>
+</div>
 
     <!-- Pricing Card 2 -->
     <div class="pricing-card">
