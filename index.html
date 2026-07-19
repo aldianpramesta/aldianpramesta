@@ -527,10 +527,20 @@
     }
   }
 
+// Sediakan botol penampung waktu (timer)
+  let timerPencarian;
+
   // Event listener: Setiap kali user mengetik sesuatu di search bar
   document.getElementById('search-input').addEventListener('input', () => {
-    currentPage = 1; // Balikkan ke halaman 1 setiap kali mencari sesuatu
-    tampilkanProduk(currentPage);
+    // Hapus timer lama kalau user masih mencet tombol keyboard (reset waktu)
+    clearTimeout(timerPencarian);
+
+    // Bikin timer baru, tunggu 300 milidetik (0.3 detik) pasca ketikan terakhir
+    timerPencarian = setTimeout(() => {
+      currentPage = 1; 
+      tampilkanProduk(currentPage);
+      console.log("Pencarian dieksekusi!"); // Opsional: Buat ngecek di inspect elemen
+    }, 300); 
   });
 
   // Jalankan sistem pertama kali saat web dibuka
