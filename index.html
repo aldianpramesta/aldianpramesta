@@ -409,17 +409,20 @@
 
 <!-- Section 5: Pricing -->
 <style>
-  /* Styling khusus untuk Search Bar */
+  /* Styling khusus untuk Search Bar & Tombol Hapus */
   .search-wrapper {
+    position: relative; /* Membuat pembungkus jadi patokan posisi tombol X */
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
     width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .search-bar {
     width: 100%;
-    max-width: 360px;
-    padding: 12px 16px;
+    padding: 12px 40px 12px 16px; /* Diberi padding kanan 40px supaya teks tidak menabrak tombol X */
     background-color: #111111;
     color: #ffffff;
     border: 1px solid #333333;
@@ -431,12 +434,31 @@
   .search-bar:focus {
     border-color: #ffffff;
   }
+  .clear-search-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #555555;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: none; /* Sembunyikan di awal saat kosong */
+    transition: color 0.2s;
+  }
+  .clear-search-btn:hover {
+    color: #ffffff;
+  }
 </style>
 
 <section class="section-5">
-  <!-- Input Search Bar Baru -->
+  <!-- Input Search Bar Baru + Tombol X -->
   <div class="search-wrapper">
     <input type="text" id="search-input" placeholder="Cari produk di sini..." class="search-bar">
+    <button id="clear-search" class="clear-search-btn">&times;</button>
   </div>
 
   <!-- Wadah Produk -->
@@ -468,20 +490,16 @@
     const container = document.getElementById('tempat-produk');
     container.innerHTML = ""; // Bersihkan produk halaman sebelumnya
 
-    // Ambil kata kunci ketikan dari search bar
     const kataKunci = document.getElementById('search-input').value.toLowerCase();
 
-    // Saring list produk yang namanya cocok dengan ketikan user
     const produkDifilter = daftarProduk.filter(produk => 
       produk.name.toLowerCase().includes(kataKunci)
     );
 
-    // Rumus memotong list produk berdasarkan halaman
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = page * itemsPerPage;
     const produkHalamanIni = produkDifilter.slice(startIndex, endIndex);
 
-    // Render/gambar produk ke web
     produkHalamanIni.forEach(produk => {
       container.innerHTML += `
         <div class="pricing-card">
@@ -496,7 +514,6 @@
       `;
     });
 
-    // Perbarui cetakan tombol halaman berdasarkan jumlah produk hasil filter
     buatTombolNavigasi(produkDifilter.length);
   }
 
@@ -507,7 +524,6 @@
 
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     
-    // Kalau halaman cuma 1 atau kosong, sembunyikan tombol halaman
     if (totalPages <= 1) return;
 
     for (let i = 1; i <= totalPages; i++) {
@@ -527,20 +543,36 @@
     }
   }
 
-// Sediakan botol penampung waktu (timer)
+  // Ambil elemen HTML untuk dikontrol di JavaScript
+  const searchInput = document.getElementById('search-input');
+  const clearSearchBtn = document.getElementById('clear-search');
   let timerPencarian;
 
   // Event listener: Setiap kali user mengetik sesuatu di search bar
-  document.getElementById('search-input').addEventListener('input', () => {
-    // Hapus timer lama kalau user masih mencet tombol keyboard (reset waktu)
+  searchInput.addEventListener('input', () => {
+    // Tampilkan tombol X kalau ada teksnya, sembunyikan kalau kosong
+    if (searchInput.value.length > 0) {
+      clearSearchBtn.style.display = 'block';
+    } else {
+      clearSearchBtn.style.display = 'none';
+    }
+
     clearTimeout(timerPencarian);
 
-    // Bikin timer baru, tunggu 300 milidetik (0.3 detik) pasca ketikan terakhir
+    // Menjalankan pencarian dengan delay 300ms (0.3 detik) agar ketikan terasa responsif dan gesit
     timerPencarian = setTimeout(() => {
       currentPage = 1; 
       tampilkanProduk(currentPage);
-      console.log("Pencarian dieksekusi!"); // Opsional: Buat ngecek di inspect elemen
-    }, 2000); 
+    }, 300); 
+  });
+
+  // Event listener: Ketika tombol silang (X) diklik oleh user
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = "";             // Bersihkan kolom teks
+    clearSearchBtn.style.display = 'none'; // Sembunyikan kembali tombol X
+    currentPage = 1;                    // Kembalikan ke halaman utama
+    tampilkanProduk(currentPage);       // Reset visual produk ke data awal
+    searchInput.focus();                // Pertahankan kursor agar tetap aktif di kolom cari
   });
 
   // Jalankan sistem pertama kali saat web dibuka
