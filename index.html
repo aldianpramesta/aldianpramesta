@@ -309,13 +309,65 @@
   <script>
     // 1. DATA PRODUK + KATEGORI
     const daftarProduk = [
-      { name: "Rinso Deterjen Cair 1.44kg", price: "Rp149.000", img: "images/products/detergents/rinso deterjen bubuk.png", category: "Deterjen" },
-      { name: "Soklin Cair 800ml", price: "Rp25.000", img: "images/soklin.png", category: "Deterjen" },
-      { name: "Pepsodent 190g", price: "Rp15.000", img: "images/pepsodent.png", category: "Perawatan" },
-      { name: "Sunlight Jeruk Nipis", price: "Rp15.000", img: "images/placeholder.png", category: "Sabun Cuci" },
-      { name: "Mama Lemon 780ml", price: "Rp14.000", img: "images/placeholder.png", category: "Sabun Cuci" },
-      { name: "Pepsodent Herbal", price: "Rp18.000", img: "images/placeholder.png", category: "Perawatan" },
-      { name: "Rinso Bubuk 700g", price: "Rp22.000", img: "images/placeholder.png", category: "Deterjen" }
+[
+  // Makanan
+  { name: "Trick Baked Chip Asian BBQ Biskuit", price: "Rp0", img: "images/products/makanan/trick baked chip asian bbq biskuit.png", category: "Makanan" },
+
+  // Minuman
+  { name: "Good Day Capuccino Kopi", price: "Rp0", img: "images/products/minuman/good day capuccino kopi.png", category: "Minuman" },
+  { name: "Good Day Mocacinno Kopi", price: "Rp0", img: "images/products/minuman/good day mocacinno kopi.png", category: "Minuman" },
+  { name: "Kapal Api Mini Kopi", price: "Rp0", img: "images/products/minuman/kapal api mini kopi.jpg", category: "Minuman" },
+  { name: "Kapal Api Special Mix Kopi", price: "Rp0", img: "images/products/minuman/kapal api special mix kopi.png", category: "Minuman" },
+  { name: "Luwak White Koffie Kopi", price: "Rp0", img: "images/products/minuman/luwak white koffie kopi.jpg", category: "Minuman" },
+  { name: "Luwak White Koffie Kopi", price: "Rp0", img: "images/products/minuman/luwak white koffie kopi.png", category: "Minuman" },
+  { name: "Sidomuncul Vit C1000 Collagen Minuman Seduh Supplement Kulit", price: "Rp0", img: "images/products/minuman/sidomuncul vit c1000 collagen minuman seduh supplement kulit.png", category: "Minuman" },
+  { name: "Sidomuncul Vit C1000 Muscat Grape Minuman Seduh Supplement Kulit", price: "Rp0", img: "images/products/minuman/sidomuncul vit c1000 muscat grape minuman seduh supplement kulit.png", category: "Minuman" },
+  { name: "Top Coffee Gula Aren Kopi", price: "Rp0", img: "images/products/minuman/top coffee gula aren kopi.png", category: "Minuman" },
+
+  // Pembasmi Hama
+  { name: "Baygon Batang Pembasmi Nyamuk", price: "Rp0", img: "images/products/pembasmi hama/baygon batang pembasmi nyamuk.png", category: "Pembasmi Hama" },
+  { name: "Baygon Pembasmi Nyamuk", price: "Rp0", img: "images/products/pembasmi hama/baygon pembasmi nyamuk.png", category: "Pembasmi Hama" },
+
+  // Pembersih Badan
+  { name: "Biore Sabun Mandi", price: "Rp0", img: "images/products/pembersih badan/biore sabun mandi.png", category: "Pembersih Badan" },
+  { name: "Ciptadent Mint Pasta Gigi", price: "Rp0", img: "images/products/pembersih badan/ciptadent mint pasta gigi.png", category: "Pembersih Badan" },
+  { name: "Emeron Black Shine Shampoo", price: "Rp0", img: "images/products/pembersih badan/emeron black shine shampoo.png", category: "Pembersih Badan" },
+  { name: "Emeron Lovely Jeju Orange Body Lotion", price: "Rp0", img: "images/products/pembersih badan/emeron lovely jeju orange body lotion.jpg", category: "Pembersih Badan" },
+  { name: "Fres Sabun Mandi", price: "Rp0", img: "images/products/pembersih badan/fres sabun mandi.png", category: "Pembersih Badan" },
+  { name: "Giv White Sabun Mandi", price: "Rp0", img: "images/products/pembersih badan/giv white sabun mandi.png", category: "Pembersih Badan" },
+  { name: "Glow & Lovely Sabun Cuci Wajah", price: "Rp0", img: "images/products/pembersih badan/glow & lovely sabun cuci wajah.png", category: "Pembersih Badan" },
+  { name: "K Natural Sabun Mandi", price: "Rp0", img: "images/products/pembersih badan/k natural sabun mandi.png", category: "Pembersih Badan" },
+  { name: "Lux Botanicals Sabun Mandi", price: "Rp0", img: "images/products/pembersih badan/lux botanicals sabun mandi.jpg", category: "Pembersih Badan" },
+
+  // Pembersih Kotoran
+  { name: "Rinso Deterjen Bubuk", price: "Rp0", img: "images/products/pembersih kotoran/rinso deterjen bubuk.png", category: "Pembersih Kotoran" },
+  { name: "Mama Lemon 690ml Sabun Cuci Piring", price: "Rp0", img: "images/products/pembersih kotoran/mama lemon 690ml sabun cuci piring.png", category: "Pembersih Kotoran" },
+  { name: "Mama Lemon 950ml Sabun Cuci Piring", price: "Rp0", img: "images/products/pembersih kotoran/mama lemon 950ml sabun cuci piring.png", category: "Pembersih Kotoran" },
+  { name: "Soklin Deterjen Cair", price: "Rp0", img: "images/products/pembersih kotoran/soklin deterjen cair.png", category: "Pembersih Kotoran" },
+  { name: "Soklin Lantai Sabun Lantai", price: "Rp0", img: "images/products/pembersih kotoran/soklin lantai sabun lantai.png", category: "Pembersih Kotoran" },
+  { name: "Sunlight Sabun Cuci Piring", price: "Rp0", img: "images/products/pembersih kotoran/sunlight sabun cuci piring.png", category: "Pembersih Kotoran" },
+  { name: "Super Pell Apple Sabun Lantai", price: "Rp0", img: "images/products/pembersih kotoran/super pell apple sabun lantai.jpg", category: "Pembersih Kotoran" },
+
+  // Perawatan Kulit
+  { name: "Posh Roll On Deodoran", price: "Rp0", img: "images/products/perawatan kulit/posh roll on deodoran.png", category: "Perawatan Kulit" },
+  { name: "Sidomuncul Vit C1000 Collagen Minuman Seduh Supplement Kulit", price: "Rp0", img: "images/products/perawatan kulit/sidomuncul vit c1000 collagen minuman seduh supplement kulit.png", category: "Perawatan Kulit" },
+  { name: "Sidomuncul Vit C1000 Muscat Grape Minuman Seduh Supplement Kulit", price: "Rp0", img: "images/products/perawatan kulit/sidomuncul vit c1000 muscat grape minuman seduh supplement kulit.png", category: "Perawatan Kulit" },
+
+  // Pewangi
+  { name: "Posh Roll On Deodoran", price: "Rp0", img: "images/products/pewangi/posh roll on deodoran.png", category: "Pewangi" },
+
+  // Sembako
+  { name: "Desaku Ketumbar Bubuk", price: "Rp0", img: "images/products/sembako/desaku ketumbar bubuk.png", category: "Sembako" },
+  { name: "Filma Minyak Goreng", price: "Rp0", img: "images/products/sembako/filma minyak goreng.png", category: "Sembako" },
+  { name: "Fortune Minyak Goreng", price: "Rp0", img: "images/products/sembako/fortune minyak goreng.png", category: "Sembako" },
+  { name: "Indomie Ayam Bawang Mie", price: "Rp0", img: "images/products/sembako/indomie ayam bawang mie.png", category: "Sembako" },
+  { name: "Indomie Goreng Ayam Geprek Mie", price: "Rp0", img: "images/products/sembako/indomie goreng ayam geprek mie.png", category: "Sembako" },
+  { name: "Indomie Goreng Mie", price: "Rp0", img: "images/products/sembako/indomie goreng mie.png", category: "Sembako" },
+  { name: "Kelapa Mas Minyak Goreng", price: "Rp0", img: "images/products/sembako/kelapa mas minyak goreng.png", category: "Sembako" },
+  { name: "Ladaku Merica Bubuk", price: "Rp0", img: "images/products/sembako/ladaku merica bubuk.png", category: "Sembako" },
+  { name: "Rose Brand Minyak Goreng", price: "Rp0", img: "images/products/sembako/rose brand minyak goreng.png", category: "Sembako" },
+  { name: "Royco Rasa Ayam Bumbu Kaldu 94g", price: "Rp0", img: "images/products/sembako/royco rasa ayam bumbu kaldu 94g.png", category: "Sembako" },
+  { name: "Royco Rasa Sapi Saset Bumbu Kaldu", price: "Rp0", img: "images/products/sembako/royco rasa sapi saset bumbu kaldu.png", category: "Sembako" }
     ];
 
     // 2. PENGATURAN AWAL
