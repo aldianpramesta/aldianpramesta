@@ -303,7 +303,7 @@
       cursor: pointer;
     }
 .sort-wrapper { position: relative; display: flex; justify-content: center; margin-bottom: 20px; } .sort-main-btn { background: #111; color: #fff; border: 1px solid #333; padding: 8px 16px; border-radius: 8px; cursor: pointer; } .sort-menu { position: absolute; top: 100%; margin-top: 5px; background: #111; border: 1px solid #333; border-radius: 8px; z-index: 10; display: none; flex-direction: column; width: 160px; } .sort-option { background: none; border: none; color: #888; padding: 10px; cursor: pointer; text-align: left; } .sort-option:hover { background: #222; } .sort-option.active { color: #fff; }
-.home-btn { background: #111; color: #fff; border: 1px solid #333; padding: 8px 16px; border-radius: 8px; cursor: pointer; margin-right: 10px; } .home-btn:hover { background: #222; }
+.home-btn { background: #111; color: #fff; border: 1px solid #333; padding: 8px; border-radius: 8px; cursor: pointer; margin-right: 10px; display: flex; align-items: center; justify-content: center; } .home-btn:hover { background: #222; }
   </style>
 
   <section class="section-5">
@@ -317,7 +317,7 @@
     <div id="category-container" class="category-wrapper"></div>
 
     <!-- Dropdown Urutan Harga -->
-<div class="sort-wrapper"><button class="home-btn" onclick="goHome()">Home</button><button class="sort-main-btn" onclick="toggleSortMenu()">Sorting ▼</button><div id="sort-menu" class="sort-menu"><button class="sort-option active" onclick="setSort('asc')">Harga Termurah</button><button class="sort-option" onclick="setSort('desc')">Harga Termahal</button></div></div>
+<div class="sort-wrapper"><button class="home-btn" onclick="goHome()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button><button class="sort-main-btn" onclick="toggleSortMenu()">Sorting ▼</button><div id="sort-menu" class="sort-menu"><button class="sort-option active" onclick="setSort('asc')">Harga Termurah</button><button class="sort-option" onclick="setSort('desc')">Harga Termahal</button></div></div>
 
     <!-- Wadah Produk -->
     <div class="pricing-wrapper" id="tempat-produk"></div>
@@ -525,5 +525,7 @@ function goHome() { document.getElementById('search-input').value = ''; document
   </script>
 </body>
 </html>
+
+
 
 
