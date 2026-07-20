@@ -302,6 +302,7 @@
       outline: none;
       cursor: pointer;
     }
+.sort-wrapper { position: relative; display: flex; justify-content: center; margin-bottom: 20px; } .sort-main-btn { background: #111; color: #fff; border: 1px solid #333; padding: 8px 16px; border-radius: 8px; cursor: pointer; } .sort-menu { position: absolute; top: 100%; margin-top: 5px; background: #111; border: 1px solid #333; border-radius: 8px; z-index: 10; display: none; flex-direction: column; width: 160px; } .sort-option { background: none; border: none; color: #fff; padding: 10px; cursor: pointer; text-align: left; } .sort-option:hover { background: #222; } .sort-option.active { color: #888; }
   </style>
 
   <section class="section-5">
@@ -315,12 +316,7 @@
     <div id="category-container" class="category-wrapper"></div>
 
     <!-- Dropdown Urutan Harga -->
-    <div class="sort-wrapper">
-      <select id="sort-select" class="sort-select">
-        <option value="asc">Termurah ke Termahal</option>
-        <option value="desc">Termahal ke Termurah</option>
-      </select>
-    </div>
+<div class="sort-wrapper"><button class="sort-main-btn" onclick="toggleSortMenu()">Sorting ▼</button><div id="sort-menu" class="sort-menu"><button class="sort-option active" onclick="setSort('asc')">Harga Termurah</button><button class="sort-option" onclick="setSort('desc')">Harga Termahal</button></div></div>
 
     <!-- Wadah Produk -->
     <div class="pricing-wrapper" id="tempat-produk"></div>
@@ -510,13 +506,12 @@
     buatTombolKategori(); 
     tampilkanProduk(currentPage);
 
-    document.getElementById('sort-select').addEventListener('change', (e) => {
-      currentSort = e.target.value;
-      currentPage = 1;
-      tampilkanProduk(currentPage);
-    });
+function toggleSortMenu() { const m = document.getElementById('sort-menu'); m.style.display = (m.style.display === 'block') ? 'none' : 'block'; }
+function setSort(type) { currentSort = type; currentPage = 1; document.querySelectorAll('.sort-option').forEach(el => el.classList.remove('active')); event.target.classList.add('active'); toggleSortMenu(); tampilkanProduk(currentPage); }
   </script>
 </body>
 </html>
+
+
 
 
