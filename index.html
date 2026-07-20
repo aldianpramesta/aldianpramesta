@@ -287,6 +287,21 @@
     .category-btn:hover:not(.active) {
       color: #bbbbbb;
     }
+    .sort-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .sort-select {
+      background-color: #111111;
+      color: #ffffff;
+      border: 1px solid #333333;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+    }
   </style>
 
   <section class="section-5">
@@ -298,6 +313,14 @@
 
     <!-- Wadah Tombol Kategori Otomatis -->
     <div id="category-container" class="category-wrapper"></div>
+
+    <!-- Dropdown Urutan Harga -->
+    <div class="sort-wrapper">
+      <select id="sort-select" class="sort-select">
+        <option value="asc">Termurah ke Termahal</option>
+        <option value="desc">Termahal ke Termurah</option>
+      </select>
+    </div>
 
     <!-- Wadah Produk -->
     <div class="pricing-wrapper" id="tempat-produk"></div>
@@ -359,6 +382,10 @@
     // 2. PENGATURAN AWAL
     let currentPage = 1;      
     let currentCategory = "Semua"; 
+    let currentSort = 'asc'; 
+    function parseHarga(hargaStr) {
+      return parseInt(hargaStr.replace(/[^0-9]/g, '')) || 0;
+    }
     const itemsPerPage = window.innerWidth <= 768 ? 12 : 12;  
 
     // Fungsi membuat tombol filter kategori secara otomatis dari data produk
@@ -397,6 +424,13 @@
         const cocokKataKunci = produk.name.toLowerCase().includes(kataKunci);
         const cocokKategori = (currentCategory === "Semua") || (produk.category === currentCategory);
         return cocokKataKunci && cocokKategori;
+      });
+
+      // Proses sortir berdasarkan harga
+      produkDifilter.sort((a, b) => {
+        const hargaA = parseHarga(a.price);
+        const hargaB = parseHarga(b.price);
+        return currentSort === 'asc' ? hargaA - hargaB : hargaB - hargaA;
       });
 
       const startIndex = (page - 1) * itemsPerPage;
@@ -475,6 +509,14 @@
     // JALANKAN SISTEM PERTAMA KALI
     buatTombolKategori(); 
     tampilkanProduk(currentPage);
+
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      currentPage = 1;
+      tampilkanProduk(currentPage);
+    });
   </script>
 </body>
 </html>
+
+
